@@ -1,0 +1,35 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5.25rem;
+  padding: 1.2rem 3rem;
+  background-color: var(--color-darker);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logo {
+  margin-right: auto;
+  font-weight: 500;
+  font-size: 1.7rem;
+  color: var(--color-primary);
+  transition: 200ms ease;
+}
+
+.logo:hover {
+  color: var(--color-gray);
+}
+
+.link:link,
+.link:visited {
+  font-size: 1.3rem;
+  padding: 0 1.5rem;
+  transition: 200ms ease;
+}
+
+.link:hover {
+  color: var(--color-primary);
+}

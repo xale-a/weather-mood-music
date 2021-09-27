@@ -1,0 +1,33 @@
+{
+  "name": "weather-mood-music",
+  "version": "0.1.1",
+  "author": "Aleksa Nikolić",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
+    "@svgr/webpack": "^5.5.0",
+    "axios": "^0.21.4",
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.5",
+    "react-select": "^4.3.1",
+    "reactjs-popup": "^2.0.5",
+    "sharp": "^0.29.1"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xale-a/weather-mood-music.git"
+  }
+}

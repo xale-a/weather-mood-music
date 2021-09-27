@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.main {
+  margin-left: auto;
+  width: 55rem;
+  background-color: var(--color-light-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.weather {
+  width: 43rem;
+  padding: 0.5rem 1rem;
+}

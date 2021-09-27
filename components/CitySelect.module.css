@@ -1,0 +1,22 @@
+.container {
+  border-bottom: 1px solid var(--color-gray-lighter);
+  padding: 1.5rem 1rem;
+}
+
+.select {
+  width: 20rem;
+  margin-left: 0.5rem;
+}
+
+.select *::-webkit-scrollbar {
+	width: 12px;
+	background-color: var(--color-dark);
+}
+
+.select *::-webkit-scrollbar-track {
+	background-color: var(--color-dark);
+}
+
+.select *::-webkit-scrollbar-thumb {
+	background-color: var(--color-gray-lighter);
+}
