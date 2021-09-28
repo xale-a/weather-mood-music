@@ -1,11 +1,39 @@
 .weather {
   text-align: center;
   margin: 20% auto;
+  width: max-content;
 }
 
 .city {
-  margin-bottom: -0.3rem;
+  margin: 0 auto -0.3rem;
   font-size: 2.5rem;
+  position: relative;
+  width: max-content;
+}
+
+.refresh {
+  cursor: pointer;
+  position: absolute;
+  right: -2.1rem;
+  top: -0.8rem;
+  background-color: transparent;
+  border: none;
+}
+
+.refresh svg {
+  width: 1.7rem;
+  vertical-align: middle;
+  fill: var(--color-gray-lighter);
+  transition: 200ms ease;
+}
+
+.refresh:hover svg {
+  fill: var(--color-gray);
+  transform: rotate(75deg);
+}
+
+.refresh:active svg {
+  transform: rotate(95deg);
 }
 
 .image {

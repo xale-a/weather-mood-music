@@ -116,6 +116,7 @@
   width: 1rem;
   fill: var(--color-gray);
   opacity: 0.4;
+  vertical-align: middle;
 }
 
 .seeMore:hover > * {

@@ -1,10 +1,13 @@
 import dynamic from 'next/dynamic'
 import { useDispatch } from 'react-redux';
 import { setCity } from './store/citySlice';
+import { setRefresh } from './store/refreshSlice';
 import styles from './CitySelect.module.css';
+import RefreshIcon from '../public/refresh.svg';
+import { useSelector } from 'react-redux';
 
 const AsyncSelect = dynamic(() => import('react-select/async'), {
-  loading: () => <div style={{height: '41px'}}>&nbsp;</div>,
+  loading: () => <div style={{height: '41px', width: '20rem'}}>&nbsp;</div>,
   ssr: false,
 });
 
@@ -47,21 +50,37 @@ async function getCities(filter) {
 }
 
 function CitySelect() {
+  const city = useSelector(state => state.city.value);
   const dispatch = useDispatch();
 
   return ( 
     <div className={styles.container}>
-      <AsyncSelect
-        className={styles.select}
-        cacheOptions
-        defaultOptions
-        loadOptions={getCities}
-        isOptionDisabled={option => option.disabled}
-        onChange={e => dispatch(setCity(e.value))}
-        placeholder="Select your city..."
-        theme={selectTheme}
-        styles={selectStyles}
-      />
+      <div className={styles.cityPick}>
+        <AsyncSelect
+          className={styles.select}
+          cacheOptions
+          defaultOptions
+          loadOptions={getCities}
+          isOptionDisabled={option => option.disabled}
+          onChange={e => dispatch(setCity(e.value))}
+          placeholder="Select your city..."
+          theme={selectTheme}
+          styles={selectStyles}
+          autoFocus
+        />
+        <span>or</span>
+        <button className={styles.getLocation}>
+          Get current location
+        </button>
+      </div>
+      
+      <button
+        className={styles.refresh}
+        onClick={() => dispatch(setRefresh(true))}
+        disabled={!city}
+      >
+        <RefreshIcon />
+      </button>
     </div>
   );
 }

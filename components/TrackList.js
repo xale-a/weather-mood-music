@@ -1,15 +1,18 @@
 import { useState, useEffect} from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useGetTracksQuery } from './store/api';
+import { setRefresh } from './store/refreshSlice';
 import Track from './Track';
 import styles from './TrackList.module.css';
 
 function SongList() {
   const moods = useSelector(state => state.moods.value);
+  const refresh = useSelector(state => state.refresh.value);
   const [skip, setSkip] = useState(true);
   const { data: tracks, error, isUninitialized, isFetching, refetch } = useGetTracksQuery(moods, {
     skip,
   });
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (moods == null || moods.length === 0) {
@@ -20,6 +23,13 @@ function SongList() {
       refetch();
     }
   }, [moods]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (refresh) {
+      refetch();
+      dispatch(setRefresh(false))
+    }
+  }, [refresh]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={styles.container}>

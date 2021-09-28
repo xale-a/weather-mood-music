@@ -1,11 +1,24 @@
 .container {
   border-bottom: 1px solid var(--color-gray-lighter);
-  padding: 1.5rem 1rem;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cityPick {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.cityPick span {
+  color: var(--color-gray-lighter);
 }
 
 .select {
   width: 20rem;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
 }
 
 .select *::-webkit-scrollbar {
@@ -19,4 +32,66 @@
 
 .select *::-webkit-scrollbar-thumb {
 	background-color: var(--color-gray-lighter);
+}
+
+.getLocation {
+  cursor: pointer;
+  padding: 0.6em 1.1em;
+  font-size: 1.05rem;
+  border-radius: 0;
+  border: 1px solid #EEEEEE99;
+  background-color: var(--color-dark);
+  color: var(--color-gray);
+  transition: 100ms ease;
+}
+
+.getLocation:hover {
+  background-color: var(--color-primary-lighter);
+  border-color: #EEEEEEDD;
+  /* border-color: var(--color-primary); */
+
+}
+
+.getLocation:active {
+  background-color: var(--color-primary);
+  /* border-color: var(--color-primary); */
+  /* color: var(--color-primary); */
+}
+
+.refresh {
+  cursor: pointer;
+  margin-right: 0.5rem;
+  padding: 0.45rem 0.5rem;
+  background-color: var(--color-darker);
+  border: 1px solid var(--color-gray-lighter);
+  transition: 200ms ease;
+}
+
+.refresh svg {
+  fill: var(--color-primary);
+  width: 2.7rem;
+  height: 2.7rem;
+  vertical-align: middle;
+  transition: 200ms ease;
+}
+
+.refresh:hover:not(:disabled) {
+  border-color: var(--color-gray);
+}
+
+.refresh:hover:not(:disabled) svg {
+  transform: rotate(75deg);
+}
+
+.refresh:active:not(:disabled) {
+  background-color: var(--color-light-dark);
+}
+
+.refresh:active:not(:disabled) svg {
+  transform: rotate(95deg);
+}
+
+.refresh:disabled {
+  opacity: 0.4;
+  cursor: initial;
 }

@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { weatherToMoods } from './store/moodsSlice';
 import { useGetWeatherQuery } from './store/api';
 import Image from 'next/image';
+import RefreshIcon from '../public/refresh.svg';
 import styles from './WeatherInfo.module.css';
 
 function WeatherInfo() {
   const city = useSelector(state => state.city.value);
   const dispatch = useDispatch();
   const [skip, setSkip] = useState(true);
-  const { data: weather, error, isUninitialized, isFetching } = useGetWeatherQuery(city, {
+  const { data: weather, error, isUninitialized, isFetching, refetch } = useGetWeatherQuery(city, {
     refetchOnMountOrArgChange: true,
     skip
   });
@@ -37,6 +38,12 @@ function WeatherInfo() {
       : isFetching ? <>loading...</>
       : weather ? <>
         <h1 className={styles.city}>
+          <button
+            className={styles.refresh}
+            onClick={refetch}
+          >
+            <RefreshIcon />
+          </button>
           {weather.city}
         </h1>
         <div className={styles.image}>
