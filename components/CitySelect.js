@@ -49,6 +49,17 @@ async function getCities(filter) {
   }
 }
 
+function getLocation(dispatch) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      dispatch(setCity({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      }));
+    });
+  }
+}
+
 function CitySelect() {
   const city = useSelector(state => state.city.value);
   const dispatch = useDispatch();
@@ -69,7 +80,10 @@ function CitySelect() {
           autoFocus
         />
         <span>or</span>
-        <button className={styles.getLocation}>
+        <button
+          className={styles.getLocation}
+          onClick={() => getLocation(dispatch)}
+        >
           Get current location
         </button>
       </div>

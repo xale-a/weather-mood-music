@@ -3,13 +3,14 @@ import { pickRandomUnique, shuffle } from '../../lib/arrayUtils';
 
 export default async function handler(req, res) {
   try {
+    if (req.query.moods == null) {
+      throw new Error('Query arguments not supported');
+    }
+
     const moods = req.query.moods;
     let tracks = [];
     let fragment; // How much tracks are picked from each mood
     switch(moods.length) {
-      case 1:
-        fragment = 6;
-        break;
       case 2:
         fragment = 3;
         break;

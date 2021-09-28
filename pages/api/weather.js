@@ -3,14 +3,28 @@ import { windSpeedDescMps, windDirectionDesc } from '../../lib/windDesc';
 
 export default async function handler(req, res) {
   try {
-    const weatherRes = await axios('https://api.openweathermap.org/data/2.5/weather', {
-      params: {
-        id: req.query.city,
-        appid: process.env.OPEN_WEATHER_API_KEY,
-        units: 'metric',
-      },
-    });
-    const data = weatherRes.data;
+    let apiRes;
+    if (req.query.city != null) {
+      apiRes = await axios('https://api.openweathermap.org/data/2.5/weather', {
+        params: {
+          id: req.query.city,
+          appid: process.env.OPEN_WEATHER_API_KEY,
+          units: 'metric',
+        },
+      });
+    } else if (req.query.lat != null && req.query.lon != null) {
+      apiRes = await axios('https://api.openweathermap.org/data/2.5/weather', {
+        params: {
+          lat: req.query.lat,
+          lon: req.query.lon,
+          appid: process.env.OPEN_WEATHER_API_KEY,
+          units: 'metric',
+        }
+      });
+    } else {
+      throw new Error('Invalid query arguments');
+    }
+    const data = apiRes.data;
   
     const weather = {
       condition_id: data.weather[0].id,

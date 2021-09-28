@@ -5,10 +5,24 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: '/api/' }),
   endpoints: (builder) => ({
     getWeather: builder.query({
-      query: (city) => `weather/?city=${city}`,
+      query: (city) => {
+        if (typeof city === 'number') {
+          return `weather?city=${city}`;
+        } else if (city?.latitude != null && city?.longitude != null) {
+          return `weather?lat=${city.latitude}&lon=${city.longitude}`;
+        } else {
+          return 'weather';
+        }
+      },
     }),
     getTracks: builder.query({
-      query: (moods) => `tracks/?${'moods='+moods?.join('&moods=')}`,
+      query: (moods) => {
+        if (moods instanceof Array && moods.length !== 1) {
+          return `tracks?${'moods='+moods.join('&moods=')}`;
+        } else {
+          return 'tracks';
+        }
+      }
     }),
   }),
 });
