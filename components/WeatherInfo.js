@@ -5,6 +5,7 @@ import { useGetWeatherQuery } from './store/api';
 import Image from 'next/image';
 import RefreshIcon from '../public/refresh.svg';
 import styles from './WeatherInfo.module.css';
+import WeatherInfoSkeleton from './skeletons/WeatherInfoSkeleton';
 
 function WeatherInfo() {
   const city = useSelector(state => state.city.value);
@@ -35,7 +36,7 @@ function WeatherInfo() {
     <div className={styles.weather}>
       {error ? <>Oh no,there was an error.</>
       : isUninitialized ? <></>
-      : isFetching ? <>loading...</>
+      : isFetching ? <WeatherInfoSkeleton />
       : weather ? <>
         <h1 className={styles.city}>
           <button

@@ -4,6 +4,7 @@ import { useGetTracksQuery } from './store/api';
 import { setRefresh } from './store/refreshSlice';
 import Track from './Track';
 import styles from './TrackList.module.css';
+import TrackListSkeleton from './skeletons/TrackListSkeleton';
 
 function SongList() {
   const moods = useSelector(state => state.moods.value);
@@ -35,7 +36,14 @@ function SongList() {
     <div className={styles.container}>
       {error ? <>Oh no,there was an error.</>
       : isUninitialized ? <></>
-      : isFetching ? <>loading...</>
+      : isFetching ? <>
+        <TrackListSkeleton />
+        <TrackListSkeleton />
+        <TrackListSkeleton />
+        <TrackListSkeleton />
+        <TrackListSkeleton />
+        <TrackListSkeleton />
+      </>
       : tracks ? tracks.map(track => <Track key={track.id} track={track}/>)
       : null}
     </div>
