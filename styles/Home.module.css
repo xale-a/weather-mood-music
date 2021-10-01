@@ -6,9 +6,10 @@
 .main {
   margin-left: auto;
   width: 55rem;
-  background-color: var(--color-light-dark);
+  background-color: var(--primary-color-light);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 0.7rem #55555555;
 }
 
 .weather {

@@ -16,10 +16,10 @@ const selectTheme = (theme) => ({
   borderRadius: 0,
   colors: {
     ...theme.colors,
-    primary: 'var(--color-primary)',
-    primary25: 'var(--color-primary-lighter)',
-    primary50: 'var(--color-primary)',
-    neutral0: 'var(--color-dark)', //background
+    primary: 'var(--accent-color)',
+    primary25: 'var(--accent-color__4)',
+    primary50: 'var(--accent-color)',
+    neutral0: 'var(--primary-color)', //background
     neutral20: '#eeeeee99', //border
     neutral30: '#eeeeeedd', //border-hover
     neutral40: '#eeeeeeee', //arrow hover
@@ -30,8 +30,17 @@ const selectTheme = (theme) => ({
 });
 
 const selectStyles = {
-  option: (provided, state) => ({
-    ...provided,
+  control: (base, state) => ({
+    ...base,
+    border: state.isFocused ? '1px solid var(--light-gray)' : '1px solid #eeeeee99',
+    boxShadow: state.isFocused ? '0 0 0 1px var(--light-gray)' : 0,
+
+    '&:hover': {
+      border: '1px solid var(--light-gray)',
+    },
+  }),
+  option: (base, state) => ({
+    ...base,
     color: state.isDisabled ? '#eeeeee55' : '#eeeeee',
   })
 };

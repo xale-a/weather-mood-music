@@ -1,5 +1,5 @@
 .container {
-  border-bottom: 1px solid var(--color-gray-lighter);
+  border-bottom: 1px solid var(--light-gray__4);
   padding: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -13,25 +13,32 @@
 }
 
 .cityPick span {
-  color: var(--color-gray-lighter);
+  color: var(--light-gray__4);
 }
 
 .select {
   width: 20rem;
-  /* margin-left: 0.5rem; */
+}
+
+@supports (scrollbar-color: #f22 #2f2) {
+  /* For Firefox */
+  .select * {
+    scrollbar-color: var(--light-gray__4) var(--primary-color);
+    scrollbar-width: thin;
+  }
 }
 
 .select *::-webkit-scrollbar {
-	width: 12px;
-	background-color: var(--color-dark);
+	width: 8px;
+	background-color: var(--primary-color);
 }
 
 .select *::-webkit-scrollbar-track {
-	background-color: var(--color-dark);
+	background-color: var(--primary-color);
 }
 
 .select *::-webkit-scrollbar-thumb {
-	background-color: var(--color-gray-lighter);
+	background-color: var(--light-gray__4);
 }
 
 .getLocation {
@@ -40,35 +47,31 @@
   font-size: 1.05rem;
   border-radius: 0;
   border: 1px solid #EEEEEE99;
-  background-color: var(--color-dark);
-  color: var(--color-gray);
-  transition: 100ms ease;
+  background-color: var(--primary-color);
+  color: var(--light-gray);
+  transition: 200ms ease;
 }
 
 .getLocation:hover {
-  background-color: var(--color-primary-lighter);
-  border-color: #EEEEEEDD;
-  /* border-color: var(--color-primary); */
-
+  border-color: var(--accent-color);
 }
 
 .getLocation:active {
-  background-color: var(--color-primary);
-  /* border-color: var(--color-primary); */
-  /* color: var(--color-primary); */
+  background-color: var(--accent-color);
+  color: #eeeeee44;
 }
 
 .refresh {
   cursor: pointer;
   margin-right: 0.5rem;
   padding: 0.45rem 0.5rem;
-  background-color: var(--color-darker);
-  border: 1px solid var(--color-gray-lighter);
+  background-color: var(--primary-color-dark);
+  border: 1px solid var(--light-gray__4);
   transition: 200ms ease;
 }
 
 .refresh svg {
-  fill: var(--color-primary);
+  fill: var(--accent-color);
   width: 2.7rem;
   height: 2.7rem;
   vertical-align: middle;
@@ -76,7 +79,7 @@
 }
 
 .refresh:hover:not(:disabled) {
-  border-color: var(--color-gray);
+  border-color: var(--light-gray);
 }
 
 .refresh:hover:not(:disabled) svg {
@@ -84,7 +87,7 @@
 }
 
 .refresh:active:not(:disabled) {
-  background-color: var(--color-light-dark);
+  background-color: var(--primary-color-light);
 }
 
 .refresh:active:not(:disabled) svg {

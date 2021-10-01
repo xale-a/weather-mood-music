@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--color-dark);
+  background-color: var(--primary-color);
   display: grid;
   grid-template-columns: 1fr max-content;
   padding: 2rem 3rem;
@@ -11,7 +11,7 @@
 }
 
 .container a:hover {
-  color: var(--color-primary);
+  color: var(--accent-color);
 }
 
 .info {
@@ -26,7 +26,7 @@
 }
 
 .info > * > span {
-  opacity: 0.4;
+  color: var(--light-gray__4);
 }
 
 .image {
@@ -53,18 +53,18 @@
   grid-column: -1 / -2;
   grid-row: 3 / 4;
   justify-self: end;
-  background-color: var(--color-darker);
+  background-color: var(--primary-color-dark);
   font-size: 1.1rem;
   padding: 0.5em 1.1em;
-  border: 1px solid var(--color-gray-lighter);
+  border: 1px solid var(--light-gray__4);
   line-height: initial;
-  color: var(--color-gray);
+  color: var(--light-gray);
 }
 
 .close:hover {
-  border-color: var(--color-primary);
+  border-color: var(--accent-color);
 }
 
 .close:active {
-  background-color: var(--color-light-dark);
+  background-color: var(--primary-color-light);
 }

@@ -38,7 +38,7 @@ function Track({ track }) {
           trigger={<div className={styles.seeMore}><span>More Info</span><PopOutIcon /></div>}
           closeOnDocumentClick
           modal
-          contentStyle={{animation: 'anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards'}}
+          contentStyle={{animation: 'fade-in 300ms ease-in'}}
           overlayStyle={{ background: 'rgba(0, 0, 0, 0.5)' }}
         >
           {close => <TrackModal track={track} close={close} />}

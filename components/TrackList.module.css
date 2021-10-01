@@ -8,15 +8,22 @@
   margin-bottom: 1rem;
 }
 
+@supports (scrollbar-color: #f22 #2f2) {
+  /* For Firefox */
+  .container {
+    scrollbar-color: var(--light-gray__4) var(--primary-color-light);
+  }
+}
+
 .container::-webkit-scrollbar {
 	width: 12px;
-	background-color: var(--color-light-dark);
+	background-color: var(--primary-color-light);
 }
 
 .container::-webkit-scrollbar-track {
-	background-color: var(--color-light-dark);
+	background-color: var(--primary-color-light);
 }
 
 .container::-webkit-scrollbar-thumb {
-	background-color: var(--color-gray-lighter);
+	background-color: var(--light-gray__4);
 }

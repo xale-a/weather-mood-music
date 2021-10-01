@@ -5,7 +5,7 @@
   right: 0;
   height: 5.25rem;
   padding: 1.2rem 3rem;
-  background-color: var(--color-darker);
+  background-color: var(--primary-color-dark);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -15,12 +15,12 @@
   margin-right: auto;
   font-weight: 500;
   font-size: 1.7rem;
-  color: var(--color-primary);
+  color: var(--accent-color);
   transition: 200ms ease;
 }
 
 .logo:hover {
-  color: var(--color-gray);
+  color: var(--light-gray);
 }
 
 .link:link,
@@ -31,5 +31,5 @@
 }
 
 .link:hover {
-  color: var(--color-primary);
+  color: var(--accent-color);
 }

@@ -1,31 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
 
 :root {
-  --color-primary: #FF4C29;
-  --color-primary-lighter: #FF4C2966;
-  --color-light-dark: #334756;
-  --color-dark: #2C394B;
-  --color-darker: #082032;
+  --accent-color: #FF4C29;
+  --accent-color__4: #ff4c2966;
+  --primary-color-light: #334756;
+  --primary-color: #2C394B;
+  --primary-color-dark: #082032;
 
-  --color-gray: #EEEEEE;
-  --color-gray-lighter: #EEEEEE66;
+  --light-gray: #EEEEEE;
+  --light-gray__4: #EEEEEE66;
 }
 
-@keyframes anvil {
+@keyframes fade-in {
   0% {
-    transform: scale(1) translateY(0px);
     opacity: 0;
-    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
-  }
-  1% {
-    transform: scale(0.96) translateY(10px);
-    opacity: 0;
-    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
   }
   100% {
-    transform: scale(1) translateY(0px);
     opacity: 1;
-    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
   }
 }
 
@@ -39,16 +30,12 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: var(--color-dark);
+  background-color: var(--primary-color);
   line-height: 1.7;
-  color: var(--color-gray);
+  color: var(--light-gray);
 }
 
 a {
   color: inherit;
   text-decoration: none;
 }
-/* 
-a:focus {
-  box-shadow: 0 0 2rem 0.2rem var(--color-primary-lighter);
-} */
