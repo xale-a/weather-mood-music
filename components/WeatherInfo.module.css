@@ -1,16 +1,18 @@
-.weather {
-  text-align: center;
+.container {
+  grid-column: weather-start / weather-end;
+  grid-row: content-start / content-end;
   margin: 20% auto;
   width: max-content;
   height: max-content;
   padding: 1rem;
+  text-align: center;
 }
 
 .city {
-  margin: 0 auto -0.6rem;
-  font-size: 2.5rem;
   position: relative;
+  margin: 0 auto -0.6rem;
   width: max-content;
+  font-size: 2.5rem;
 }
 
 .refresh {
@@ -18,8 +20,8 @@
   position: absolute;
   right: -2.1rem;
   top: -0.8rem;
-  background-color: transparent;
   border: none;
+  background-color: transparent;
 }
 
 .refresh svg {
@@ -29,7 +31,7 @@
   transition: 200ms ease;
 }
 
-.refresh:hover svg {
+.refresh_hover:hover svg {
   fill: var(--light-gray);
   transform: rotate(75deg);
 }
@@ -59,12 +61,145 @@
 .info {
   display: grid;
   grid-template-columns: max-content max-content;
-  text-align: left;
   justify-content: center;
   column-gap: 2rem;
   row-gap: 0.2rem;
+  text-align: left;
 }
 
 .info > * > span {
   color: var(--light-gray__4);
+}
+
+@media only screen and (max-width: 80.75em) {
+  .container {
+    grid-column: main-start / main-end;
+    grid-row: weather-start / weather-end;
+    margin: 0;
+    border: 1px solid var(--light-gray__4);
+    border-top: none;
+    width: 100%;
+    height: max-content;
+    padding: 0.1rem 1.5rem;
+    text-align: left;
+  }
+  
+  .conciseInfo {
+    display: flex;
+    align-items: center;
+  }
+
+  .city {
+    margin: 0;
+    margin-right: 0.7rem;
+    font-size: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .image {
+    flex-shrink: 0;
+    margin: 0;
+    margin-right: 0.3rem;
+    width: 5rem;
+  }
+
+  .temp {
+    margin: 0;
+    margin-right: 1.5rem;
+    font-size: 2rem;
+  }
+  
+  .desc {
+    margin: 0;
+    margin-right: 1.7rem;
+    font-size: 1.1rem;
+  }
+
+  .refresh {
+    position: initial;
+    margin-right: 2rem;
+  }
+  
+  .refresh svg {
+    width: 1.7rem;
+    vertical-align: middle;
+    fill: var(--light-gray);
+    transition: 200ms ease;
+  }
+  
+  .refresh:active svg {
+    transform: rotate(95deg);
+  }
+
+  .showMore {
+    flex-shrink: 0;
+    margin-left: auto;
+    width: 3rem;
+    fill: var(--primary-color);
+    stroke: var(--light-gray__4);
+    transform: rotate(180deg);
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 55em) {
+  .container {
+    border-left: none;
+    border-right: none;
+  }
+}
+
+@media only screen and (max-width: 43.25em) {
+  .container {
+    padding: 0.1rem 0.5rem;
+  }
+
+  .image {
+    margin-left: -0.5rem;
+    margin-right: 0;
+  }
+
+  .desc {
+    font-size: 1rem;
+  }
+
+  .collapsibleInfo {
+    padding: 0 0.5rem 0.7rem;
+  }
+
+  .cityPlusRefresh {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.2rem;
+  }
+
+  .info {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .refresh {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 24.5em) {
+  .temp {
+    margin-right: 1rem;
+  }
+
+  .desc {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .showMore {
+    width: 2.2rem;
+  }
 }

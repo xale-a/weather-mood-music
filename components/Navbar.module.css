@@ -1,20 +1,17 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5.25rem;
-  padding: 1.2rem 3rem;
-  background-color: var(--primary-color-dark);
+  grid-row: navbar-start / navbar-end;
+  grid-column: content-start / content-end;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 1.2rem 3rem;
+  background-color: var(--primary-color-dark);
 }
 
 .logo {
   margin-right: auto;
-  font-weight: 500;
   font-size: 1.7rem;
+  font-weight: 500;
   color: var(--accent-color);
   transition: 200ms ease;
 }
@@ -25,11 +22,114 @@
 
 .link:link,
 .link:visited {
-  font-size: 1.3rem;
   padding: 0 1.5rem;
+  font-size: 1.3rem;
   transition: 200ms ease;
 }
 
 .link:hover {
   color: var(--accent-color);
+}
+
+@media only screen and (max-width: 80.75em) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo:hover {
+    color: var(--accent-color);
+  }
+
+  .link:hover {
+    color: currentColor;
+  }
+
+  .refresh {
+    margin-right: 0.3rem;
+    border: 1px solid var(--light-gray__4);
+    padding: 0.45rem 0.5rem;
+    cursor: pointer;
+    background-color: var(--primary-color-dark);
+    transition: 200ms ease;
+  }
+  
+  .refresh svg {
+    width: 2.3rem;
+    height: 2.3rem;
+    vertical-align: middle;
+    fill: var(--accent-color);
+    transition: 200ms ease;
+  }
+  
+  .refresh:active:not(:disabled) {
+    border-color: var(--light-gray);
+    background-color: var(--primary-color-light);
+  }
+  
+  .refresh:active:not(:disabled) svg {
+    transform: rotate(95deg);
+  }
+  
+  .refresh:disabled {
+    opacity: 0.4;
+    cursor: initial;
+  }
+}
+
+@media only screen and (max-width: 55em) {
+  .navbar {
+    justify-content: space-between;
+    padding: 1.2rem 1.75rem;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .burger div {
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: 1.5px;
+    background: var(--light-gray);
+  }
+
+  .logo {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 43.25em) {
+  .navbar {
+    padding: 0.7rem 0.7rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 24.5em) {
+  .navbar {
+    gap: 0.5rem;
+  }
+
+  .logo {
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: initial;
+  }
+
+  .refresh svg {
+    width: 2rem;
+    height: 2rem;
+  }
 }

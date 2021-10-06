@@ -1,14 +1,28 @@
 .container {
-  position: fixed;
-  top: 5.25rem;
-  bottom: 2.2rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: [content-start] 1fr [content-end];
+  grid-template-rows:
+    [content-start navbar-start] 5.25rem
+    [navbar-end main-start] calc(100vh - 5.25rem - 2.2rem)
+    [main-end footer-start] 2.2rem
+    [footer-end content-end];
   height: 100vh;
+  overflow: hidden;
 }
 
 .main {
-  height: calc(100vh - 5.25rem - 2.2rem);
+  grid-row: main-start / main-end;
+  grid-column: content-start / content-end;
+  overflow: auto;
+}
+
+@media only screen and (max-width: 80.75em) {
+  .container {
+    grid-template-rows:
+      [content-start navbar-start] 5.2rem
+      [navbar-end main-start] minmax(max-content, 100vh)
+      [main-end footer-start] 2.2rem
+      [footer-end content-end];
+    overflow: auto;
+  }
 }

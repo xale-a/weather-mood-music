@@ -23,21 +23,6 @@
   border-color: var(--accent-color);
 }
 
-.placeholder {
-  height: 6rem;
-  width: 100%;
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-  justify-self: center;
-  align-self: center;
-  display: flex;
-}
-
-.placeholder span {
-  margin: auto;
-  margin-left: 3rem;
-}
-
 .image {
   grid-column: 1 / 2;
   grid-row: 1 / 3;
@@ -56,8 +41,8 @@
 .artist {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
-  font-size: 1.2rem;
   margin-bottom: var(--margin-bottom);
+  font-size: 1.2rem;
 }
 
 .artist span {
@@ -67,8 +52,8 @@
 .album {
   grid-column: 3 / 4;
   grid-row: 1 / 3;
-  font-size: 0.8rem;
   margin-bottom: var(--margin-bottom);
+  font-size: 0.8rem;
 }
 
 .album span {
@@ -92,13 +77,13 @@
 }
 
 .seeMore {
+  cursor: pointer;
   grid-column: -1 / -2;
   grid-row: 1 / 2;
   align-self: start;
   justify-self: end;
   display: flex;
   gap: 0.4rem;
-  cursor: pointer;
 }
 
 .seeMore > * {
@@ -107,19 +92,131 @@
 
 .seeMore > span {
   align-self: start;
-  font-size: 0.7rem;
-  color: var(--light-gray__4);
   margin-bottom: auto;
+  font-size: 0.7rem;
   line-height: initial;
+  color: var(--light-gray__4);
 }
 
 .seeMore > svg {
   width: 1rem;
-  fill: var(--light-gray__4);
   vertical-align: middle;
+  fill: var(--light-gray__4);
 }
 
 .seeMore:hover > * {
   color: var(--light-gray);
   fill: var(--light-gray);
+}
+
+@media only screen and (max-width: 101.35em) {
+  .container {
+    grid-template-columns: max-content 1fr 19ch max-content;
+  }
+}
+
+@media only screen and (max-width: 80.75em) {
+  .container:hover {
+    border-color: var(--light-gray__4);
+  }
+
+  .title {
+    margin-bottom: 0.8rem;
+    font-size: 2rem;
+  }
+
+  .artist {
+    font-size: 1.15rem;
+  }
+
+  .link a {
+    font-size: 1.05rem;
+    text-decoration: underline;
+    text-underline-offset: 1px;
+  }
+  
+  .link a:hover {
+    color: currentColor;
+  }
+
+  .seeMore > span {
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    color: var(--light-gray);
+  }
+  
+  .seeMore > svg {
+    fill: var(--light-gray);
+  }
+}
+
+@media only screen and (max-width: 55em) {
+  .container {
+    grid-template-columns: max-content 1fr 22vw max-content;
+  }
+}
+
+@media only screen and (max-width: 43.25em) {
+  .container {
+    grid-template-columns:
+      [content-start image-start] max-content
+      [image-end info-start] 1fr
+      [link-start] max-content
+      [link-end info-end content-end];
+    grid-template-rows: 1fr max-content;
+    row-gap: 0.8rem;
+    column-gap: 0.7rem;
+    align-items: center;
+    padding: 0.8rem 0.7rem;
+  }
+
+  .image {
+    grid-column: image-start / image-end;
+    grid-row: 1 / 2;
+    width: 5rem;
+  }
+
+  .info {
+    grid-column: info-start / info-end;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info > * {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .title {
+    margin: 0;
+    margin-bottom: 0.1rem;
+    font-size: 1.5rem;
+  }
+  
+  .artist {
+    margin: 0;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+  
+  .album {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+
+  .link {
+    grid-column: content-start / link-start;
+    grid-row: 2 / 3;
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .seeMore {
+    grid-column: link-start / link-end;
+    grid-row: 2 / 3;
+    margin: 0;
+    align-self: inherit;
+  }
 }

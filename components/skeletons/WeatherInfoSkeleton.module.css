@@ -1,0 +1,19 @@
+.container {
+  padding-top: 0.7rem;
+}
+
+.container svg {
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 80.75em) {
+  .container {
+    padding: 1.11rem 0;
+  }
+}
+
+@media only screen and (max-width: 43.25em) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+}

@@ -1,10 +1,10 @@
 import dynamic from 'next/dynamic'
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setCity } from './store/citySlice';
 import { setRefresh } from './store/refreshSlice';
 import styles from './CitySelect.module.css';
 import RefreshIcon from '../public/refresh.svg';
-import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 
 const AsyncSelect = dynamic(() => import('react-select/async'), {
   loading: () => <div style={{height: '41px', width: '20rem'}}>&nbsp;</div>,
@@ -72,38 +72,39 @@ function getLocation(dispatch) {
 function CitySelect() {
   const city = useSelector(state => state.city.value);
   const dispatch = useDispatch();
+  const isTabletPort = useMediaQuery({ query: '(max-width: 55em)' });
+  const isTabletLand = useMediaQuery({ query: '(max-width: 80.75em)' });
 
   return ( 
     <div className={styles.container}>
-      <div className={styles.cityPick}>
-        <AsyncSelect
-          className={styles.select}
-          cacheOptions
-          defaultOptions
-          loadOptions={getCities}
-          isOptionDisabled={option => option.disabled}
-          onChange={e => dispatch(setCity(e.value))}
-          placeholder="Select your city..."
-          theme={selectTheme}
-          styles={selectStyles}
-          autoFocus
-        />
-        <span>or</span>
-        <button
-          className={styles.getLocation}
-          onClick={() => getLocation(dispatch)}
-        >
-          Get current location
-        </button>
-      </div>
-      
+      <AsyncSelect
+        className={styles.select}
+        cacheOptions
+        defaultOptions
+        loadOptions={getCities}
+        isOptionDisabled={option => option.disabled}
+        onChange={e => dispatch(setCity(e.value))}
+        placeholder="Select your city..."
+        theme={selectTheme}
+        styles={selectStyles}
+        autoFocus
+      />
+      <span>or</span>
       <button
-        className={styles.refresh}
-        onClick={() => dispatch(setRefresh(true))}
-        disabled={!city}
+        className={styles.getLocation}
+        onClick={() => getLocation(dispatch)}
       >
-        <RefreshIcon />
+        Get current location
       </button>
+      {!isTabletPort && <>
+        <button
+          className={`${styles.refresh} ${!isTabletLand && styles.refresh_hover}`}
+          onClick={() => dispatch(setRefresh(true))}
+          disabled={!city}
+        >
+          <RefreshIcon />
+        </button>
+      </>}
     </div>
   );
 }

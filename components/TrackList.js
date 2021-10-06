@@ -2,8 +2,8 @@ import { useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useGetTracksQuery } from './store/api';
 import { setRefresh } from './store/refreshSlice';
-import Track from './Track';
 import styles from './TrackList.module.css';
+import Track from './Track';
 import TrackListSkeleton from './skeletons/TrackListSkeleton';
 
 function SongList() {

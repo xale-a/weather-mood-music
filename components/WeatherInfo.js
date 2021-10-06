@@ -6,6 +6,8 @@ import Image from 'next/image';
 import RefreshIcon from '../public/refresh.svg';
 import styles from './WeatherInfo.module.css';
 import WeatherInfoSkeleton from './skeletons/WeatherInfoSkeleton';
+import { useMediaQuery } from 'react-responsive';
+import Collapsible from 'react-collapsible';
 
 function WeatherInfo() {
   const city = useSelector(state => state.city.value);
@@ -15,6 +17,8 @@ function WeatherInfo() {
     refetchOnMountOrArgChange: true,
     skip
   });
+  const isTablet = useMediaQuery({ query: '(max-width: 80.75em)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 43.25em)' });
 
   useEffect(() => {
     if (city == null) {
@@ -33,45 +37,113 @@ function WeatherInfo() {
   }, [weather]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className={styles.weather}>
+    <>
       {error ? <>Oh no,there was an error.</>
       : isUninitialized ? <></>
-      : isFetching ? <WeatherInfoSkeleton />
-      : weather ? <>
-        <h1 className={styles.city}>
-          <button
-            className={styles.refresh}
-            onClick={refetch}
-          >
-            <RefreshIcon />
-          </button>
-          {weather.city}
-        </h1>
-        <div className={styles.image}>
-          <Image
-            className={styles.image}
-            src={weather.image}
-            alt="weather condition"
-            width={200}
-            height={200}
-          />
+      : isFetching ? <>
+        <div className={styles.container}>
+          <WeatherInfoSkeleton />
         </div>
-
-        <div className={styles.temp}>
-          {weather.temp}
-        </div>
-        <div className={styles.desc}>
-          {weather.desc.weather}. {weather.desc.wind}.
-        </div>
-        <div className={styles.info}>
-          <div><span>Feels like:</span> {weather.feelsLike}</div>
-          <div><span>Wind:</span> {weather.wind}</div>
-          <div><span>Humidity:</span> {weather.humidity}</div>
-          <div><span>Pressure:</span> {weather.pressure}</div>
-          <div><span>Visibility:</span> {weather.visibility}</div>
-        </div>
-      </> : <>null</>}
-    </div>
+      </> : weather ?
+        isTablet ? <>
+          <div className={styles.container}>
+            <Collapsible
+              trigger={<>
+                <div className={styles.conciseInfo}>
+                  {!isMobile && <>
+                    <h1 className={styles.city}>
+                      {weather.city}
+                    </h1>
+                  </>}
+                  <div className={styles.image}>
+                    <Image
+                      src={weather.image}
+                      alt="weather condition"
+                      width={200}
+                      height={200}
+                      layout="responsive"
+                    />
+                  </div>
+                  <div className={styles.temp}>
+                    {weather.temp}
+                  </div>
+                  <div className={styles.desc}>
+                    {weather.desc.weather}. {weather.desc.wind}.
+                  </div>
+                  {!isMobile && <>
+                    <button
+                      className={styles.refresh}
+                      onClick={refetch}
+                    >
+                      <RefreshIcon />
+                    </button>
+                  </>}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={styles.showMore}>
+                    <path d="M24 22h-24l12-20z"/>
+                  </svg>
+                </div>
+              </>}
+            >
+              <div className={styles.collapsibleInfo}>
+                {isMobile && <>
+                  <div className={styles.cityPlusRefresh}>
+                    <h1 className={styles.city}>
+                      {weather.city}
+                    </h1>
+                    <button
+                      className={styles.refresh}
+                      onClick={refetch}
+                    >
+                      <RefreshIcon />
+                    </button>
+                  </div>
+                </>}
+                <div className={styles.info}>
+                  <div><span>Feels like:</span> {weather.feelsLike}</div>
+                  <div><span>Wind:</span> {weather.wind}</div>
+                  <div><span>Humidity:</span> {weather.humidity}</div>
+                  <div><span>Pressure:</span> {weather.pressure}</div>
+                  <div><span>Visibility:</span> {weather.visibility}</div>
+                </div>
+              </div>
+            </Collapsible>
+          </div>
+        </> : <>
+          <div className={styles.container}>
+            <h1 className={styles.city}>
+              <button
+                className={`${styles.refresh} ${!isTablet && styles.refresh_hover}`}
+                onClick={refetch}
+              >
+                <RefreshIcon />
+              </button>
+              {weather.city}
+            </h1>
+            <div className={styles.image}>
+              <Image
+                src={weather.image}
+                alt="weather condition"
+                width={200}
+                height={200}
+              />
+            </div>
+            <div className={styles.temp}>
+              {weather.temp}
+            </div>
+            <div className={styles.desc}>
+              {weather.desc.weather}. {weather.desc.wind}.
+            </div>
+            <div className={styles.info}>
+              <div><span>Feels like:</span> {weather.feelsLike}</div>
+              <div><span>Wind:</span> {weather.wind}</div>
+              <div><span>Humidity:</span> {weather.humidity}</div>
+              <div><span>Pressure:</span> {weather.pressure}</div>
+              <div><span>Visibility:</span> {weather.visibility}</div>
+            </div>
+          </div>
+        </>
+      : <>null</>}
+    </>
   );
 }
 

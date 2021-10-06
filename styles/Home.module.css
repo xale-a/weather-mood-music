@@ -1,18 +1,48 @@
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns:
+    [content-start] 1fr
+    [main-start] 55rem
+    [main-end weather-start] 35%
+    [weather-end content-end];
+  grid-template-rows:
+    [content-start city-select-start] max-content
+    [city-select-end track-list-start] 1fr
+    [track-list-end content-end];
   height: 100%;
 }
 
-.main {
-  margin-left: auto;
-  width: 55rem;
-  background-color: var(--primary-color-light);
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 0 0.7rem #55555555;
+@media only screen and (max-width: 101.35em) {
+  .container {
+    grid-template-columns:
+      [content-start] 1fr
+      [main-start] 50rem
+      [main-end weather-start] 35%
+      [weather-end content-end];
+  }
 }
 
-.weather {
-  width: 43rem;
-  padding: 0.5rem 1rem;
+@media only screen and (max-width: 80.75em) {
+  .container {
+    grid-template-columns: [main-start] 50rem [main-end];
+    grid-template-rows:
+      [content-start city-select-start] max-content
+      [city-select-end weather-start] max-content
+      [weather-end track-list-start] 1fr
+      [track-list-end content-end];
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 55em) {
+  .container {
+    grid-template-columns: [main-start] 100% [main-end];
+  }
+}
+
+@media only screen and (max-width: 43.25em) {
+  .container {
+    max-width: 33rem;
+    margin: 0 auto;
+  }
 }

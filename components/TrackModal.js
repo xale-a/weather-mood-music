@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import styles from './TrackModal.module.css';
+import { useMediaQuery } from 'react-responsive';
 
 function TrackModal({ track, close }) {
+  const isMobile = useMediaQuery({ query: '(max-width: 43.25em)' });
+
   return (
     <div className={styles.container}>
       <div className={styles.info}>
@@ -17,14 +20,25 @@ function TrackModal({ track, close }) {
         <div>
           <span>Position:</span> {track.position}
         </div>
-        <div>
+        {!isMobile && <>
+          <div>
+            <span>Tags:</span> {track.tags.map((tag, index) => (
+              <div className={styles.tags} key={tag.name + new Date()}>
+                <a href={track.url.tags[index].url} target="_blank" rel="noreferrer">{tag.name}</a>{index !== 4 ? ', ' : ' ...'}
+              </div>
+            ))}
+          </div>
+        </>}
+      </div>
+      {isMobile && <>
+        <div className={styles.tagsContainer}>
           <span>Tags:</span> {track.tags.map((tag, index) => (
             <div className={styles.tags} key={tag.name + new Date()}>
               <a href={track.url.tags[index].url} target="_blank" rel="noreferrer">{tag.name}</a>{index !== 4 ? ', ' : ' ...'}
             </div>
           ))}
         </div>
-      </div>
+      </>}
       <div className={styles.image}>
         <Image
             src={track.image}

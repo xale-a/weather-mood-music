@@ -1,7 +1,9 @@
 .container {
-  overflow: auto;
-  flex: 1;
+  grid-column: main-start / main-end;
+  grid-row: track-list-start / track-list-end;
   padding: 1.5rem 1.5rem;
+  background-color: var(--primary-color-light);
+  overflow: auto;
 }
 
 .container > *:not(:last-child) {
@@ -26,4 +28,22 @@
 
 .container::-webkit-scrollbar-thumb {
 	background-color: var(--light-gray__4);
+}
+
+@media only screen and (max-width: 80.75em) {
+  .container {
+    overflow: visible;
+  }
+}
+
+
+@media only screen and (max-width: 43.25em) {
+  .container {
+    padding: 1.1rem 0.7rem;
+
+  }
+
+  .container > *:not(:last-child) {
+    margin-bottom: 0.9rem;
+  }
 }

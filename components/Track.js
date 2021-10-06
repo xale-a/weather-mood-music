@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import styles from './Track.module.css';
-import PopOutIcon from '../public/pop-out.svg';
 import Popup from 'reactjs-popup';
 import TrackModal from './TrackModal';
+import PopOutIcon from '../public/pop-out.svg';
+import { useMediaQuery } from 'react-responsive';
 
 function Track({ track }) {
+  const isMobile = useMediaQuery({ query: '(max-width: 43.25em)' });
+
   return (
     <div className={styles.container}>
       {track && <>
@@ -18,27 +21,40 @@ function Track({ track }) {
             loading="eager"
           />
         </div>
+        
+        {isMobile ? <>
+          <div className={styles.info}>
+            <h1 className={styles.title}>
+              {track.name}
+            </h1>
+            <div className={styles.artist}>
+              <span>by</span> {track.artist}
+            </div>
+            <div className={styles.album}>
+              <span>from</span> {track.album}
+            </div>
+          </div>
+        </> : <>
+          <h1 className={styles.title}>
+            {track.name}
+          </h1>
+          <div className={styles.artist}>
+            <span>by</span> {track.artist}
+          </div>
 
-        <h1 className={styles.title}>
-          {track.name}
-        </h1>
-        <div className={styles.artist}>
-          <span>by</span> {track.artist}
-        </div>
-
-        <div className={styles.album}>
-          <span>from</span> {track.album}
-        </div>
+          <div className={styles.album}>
+            <span>from</span> {track.album}
+          </div>
+        </>}
 
         <div className={styles.link}>
           Listen on <a href={track.url.track} target="_blank" rel="noreferrer">last.fm</a>
         </div>
-
         <Popup
           trigger={<div className={styles.seeMore}><span>More Info</span><PopOutIcon /></div>}
           closeOnDocumentClick
           modal
-          contentStyle={{animation: 'fade-in 300ms ease-in'}}
+          contentStyle={{ animation: 'fade-in 300ms ease-in' }}
           overlayStyle={{ background: 'rgba(0, 0, 0, 0.5)' }}
         >
           {close => <TrackModal track={track} close={close} />}

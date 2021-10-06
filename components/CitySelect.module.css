@@ -1,18 +1,15 @@
 .container {
-  border-bottom: 1px solid var(--light-gray__4);
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cityPick {
+  grid-column: main-start / main-end;
+  grid-row: city-select-start / city-select-end;
   display: flex;
   align-items: center;
   gap: 2.5rem;
+  border-bottom: 1px solid var(--light-gray__4);
+  padding: 1.5rem;
+  background-color: var(--primary-color-light);
 }
 
-.cityPick span {
+.container span {
   color: var(--light-gray__4);
 }
 
@@ -42,13 +39,16 @@
 }
 
 .getLocation {
-  cursor: pointer;
+  --border-color: #EEEEEE99;
+  flex-shrink: 0;
+  margin-right: 3rem;
+  border: 1px solid var(--border-color);
   padding: 0.6em 1.1em;
   font-size: 1.05rem;
+  cursor: pointer;
   border-radius: 0;
-  border: 1px solid #EEEEEE99;
-  background-color: var(--primary-color);
   color: var(--light-gray);
+  background-color: var(--primary-color);
   transition: 200ms ease;
 }
 
@@ -62,27 +62,28 @@
 }
 
 .refresh {
-  cursor: pointer;
   margin-right: 0.5rem;
-  padding: 0.45rem 0.5rem;
-  background-color: var(--primary-color-dark);
+  margin-left: auto;
   border: 1px solid var(--light-gray__4);
+  padding: 0.45rem 0.5rem;
+  cursor: pointer;
+  background-color: var(--primary-color-dark);
   transition: 200ms ease;
 }
 
 .refresh svg {
-  fill: var(--accent-color);
   width: 2.7rem;
   height: 2.7rem;
   vertical-align: middle;
+  fill: var(--accent-color);
   transition: 200ms ease;
 }
 
-.refresh:hover:not(:disabled) {
+.refresh_hover:hover:not(:disabled) {
   border-color: var(--light-gray);
 }
 
-.refresh:hover:not(:disabled) svg {
+.refresh_hover:hover:not(:disabled) svg {
   transform: rotate(75deg);
 }
 
@@ -97,4 +98,62 @@
 .refresh:disabled {
   opacity: 0.4;
   cursor: initial;
+}
+
+@media only screen and (max-width: 101.35em) {
+  .container {
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 80.75em) {
+  .getLocation:hover {
+    border-color: var(--border-color);
+  }
+  
+  .getLocation:active {
+    border-color: var(--light-gray);
+    color: #eeeeee44;
+    background-color: var(--accent-color);
+  }
+}
+
+@media only screen and (max-width: 55em) {
+  .container {
+    position: initial;
+    justify-content: center;
+    gap: 3.3rem;
+  }
+  
+  .getLocation {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 43.25em) {
+  .container {
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 1rem 0.7rem;
+  }
+
+  .select {
+    font-size: 0.9rem;
+  }
+
+  .getLocation {
+    padding: 0.55em 0.9em;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 24.5em) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .select {
+    width: 100%;
+  }
 }
