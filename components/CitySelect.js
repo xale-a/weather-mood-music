@@ -23,7 +23,7 @@ const selectTheme = (theme) => ({
     neutral20: '#eeeeee99', //border
     neutral30: '#eeeeeedd', //border-hover
     neutral40: '#eeeeeeee', //arrow hover
-    neutral50: '#eeeeee77', //placeholder
+    neutral50: '#eeeeee88', //placeholder
     neutral60: '#eeeeee', //arrow selected
     neutral80: '#eeeeee', //typed text
   },

@@ -46,7 +46,7 @@
 }
 
 .artist span {
-  color: var(--light-gray__4);
+  color: var(--light-gray__6);
 }
 
 .album {
@@ -57,7 +57,7 @@
 }
 
 .album span {
-  color: var(--light-gray__4);
+  color: var(--light-gray__6);
 }
 
 .link {
@@ -95,13 +95,13 @@
   margin-bottom: auto;
   font-size: 0.7rem;
   line-height: initial;
-  color: var(--light-gray__4);
+  color: var(--light-gray__6);
 }
 
 .seeMore > svg {
   width: 1rem;
   vertical-align: middle;
-  fill: var(--light-gray__4);
+  fill: var(--light-gray__6);
 }
 
 .seeMore:hover > * {

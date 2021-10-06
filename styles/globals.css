@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
 
 :root {
-  --accent-color: #FF4C29;
-  --accent-color__4: #ff4c2966;
-  --primary-color-light: #334756;
-  --primary-color: #2C394B;
-  --primary-color-dark: #082032;
+  --accent-color: #FFD369;
+  --accent-color__4: #FFD36966;
+  --primary-color-dark: #191a24;
+  --primary-color: #2c2e44;
+  --primary-color-light: #403b45;
 
   --light-gray: #EEEEEE;
   --light-gray__4: #EEEEEE66;
+  --light-gray__6: #EEEEEE99;
 }
 
 @keyframes fade-in {

@@ -27,7 +27,7 @@
 .refresh svg {
   width: 1.7rem;
   vertical-align: middle;
-  fill: var(--light-gray__4);
+  fill: var(--light-gray__6);
   transition: 200ms ease;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .info > * > span {
-  color: var(--light-gray__4);
+  color: var(--light-gray__6);
 }
 
 @media only screen and (max-width: 80.75em) {
@@ -138,7 +138,7 @@
     margin-left: auto;
     width: 3rem;
     fill: var(--primary-color);
-    stroke: var(--light-gray__4);
+    stroke: var(--light-gray__6);
     transform: rotate(180deg);
   }
 
