@@ -14,7 +14,7 @@
 }
 
 .select {
-  width: 20rem;
+  width: 19rem;
 }
 
 @supports (scrollbar-color: #f22 #2f2) {
@@ -103,6 +103,10 @@
 @media only screen and (max-width: 101.35em) {
   .container {
     gap: 2rem;
+  }
+
+  .select {
+    width: 18rem;
   }
 }
 

@@ -83,6 +83,8 @@ function WeatherInfo() {
                   </svg>
                 </div>
               </>}
+              transitionTime={200}
+              easing="ease-in"
             >
               <div className={styles.collapsibleInfo}>
                 {isMobile && <>

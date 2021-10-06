@@ -35,7 +35,9 @@ function SongList() {
   return (
     <div className={styles.container}>
       {error ? <>Oh no,there was an error.</>
-      : isUninitialized ? <></>
+      : isUninitialized ? <>
+        <h2 className={styles.placeholder}>Please select your city to get music recommendations.</h2>
+      </>
       : isFetching ? <>
         <TrackListSkeleton />
         <TrackListSkeleton />

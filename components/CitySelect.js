@@ -7,7 +7,7 @@ import RefreshIcon from '../public/refresh.svg';
 import { useMediaQuery } from 'react-responsive';
 
 const AsyncSelect = dynamic(() => import('react-select/async'), {
-  loading: () => <div style={{height: '41px', width: '20rem'}}>&nbsp;</div>,
+  loading: () => <div className={styles.select}>&nbsp;</div>,
   ssr: false,
 });
 
@@ -84,7 +84,7 @@ function CitySelect() {
         loadOptions={getCities}
         isOptionDisabled={option => option.disabled}
         onChange={e => dispatch(setCity(e.value))}
-        placeholder="Select your city..."
+        placeholder="Select city..."
         theme={selectTheme}
         styles={selectStyles}
         autoFocus
