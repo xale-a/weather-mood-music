@@ -30,9 +30,32 @@
 	background-color: var(--light-gray__4);
 }
 
+.tryAgain {
+  margin-left: 1rem;
+  border: 1px solid var(--light-gray__4);
+  padding: 0.45em 0.9em;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--light-gray);
+  background-color: var(--primary-color-dark);
+}
+
+.tryAgain:hover {
+  border-color: var(--accent-color);
+}
+
+.tryAgain:active {
+  background-color: var(--accent-color__4);
+  color: #eeeeee44;
+}
+
 @media only screen and (max-width: 80.75em) {
   .container {
     overflow: visible;
+  }
+
+  .tryAgain:hover {
+    border-color: var(--light-gray__4);
   }
 }
 

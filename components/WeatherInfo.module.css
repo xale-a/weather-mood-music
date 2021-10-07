@@ -8,6 +8,25 @@
   text-align: center;
 }
 
+.tryAgain {
+  margin: 1rem;
+  border: 1px solid var(--light-gray__4);
+  padding: 0.45em 0.9em;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--light-gray);
+  background-color: var(--primary-color-dark);
+}
+
+.tryAgain:hover {
+  border-color: var(--accent-color);
+}
+
+.tryAgain:active {
+  background-color: var(--accent-color__4);
+  color: #eeeeee44;
+}
+
 .city {
   position: relative;
   margin: 0 auto -0.6rem;
@@ -82,6 +101,10 @@
     height: max-content;
     padding: 0.1rem 1.5rem;
     text-align: left;
+  }
+
+  .tryAgain:hover {
+    border-color: var(--light-gray__4);
   }
   
   .conciseInfo {

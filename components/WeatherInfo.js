@@ -38,9 +38,15 @@ function WeatherInfo() {
 
   return (
     <>
-      {error ? <>Oh no,there was an error.</>
-      : isUninitialized ? <></>
-      : isFetching ? <>
+      {error ? <>
+        <div className={styles.container}>
+          Oh no, there was an error... :/
+          <button className={styles.tryAgain} onClick={refetch}>
+            Try again
+          </button>
+        </div>
+      </> : isUninitialized ? <>
+      </> : isFetching ? <>
         <div className={styles.container}>
           <WeatherInfoSkeleton />
         </div>

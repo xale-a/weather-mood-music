@@ -34,20 +34,23 @@ function SongList() {
 
   return (
     <div className={styles.container}>
-      {error ? <>Oh no,there was an error.</>
-      : isUninitialized ? <>
+      {error ? <>
+        Oh no, there was an error... :/
+        <button className={styles.tryAgain} onClick={refetch}>
+          Try again
+        </button>
+      </> : isUninitialized ? <>
         <h2 className={styles.placeholder}>Please select your city to get music recommendations.</h2>
-      </>
-      : isFetching ? <>
+      </> : isFetching ? <>
         <TrackListSkeleton />
         <TrackListSkeleton />
         <TrackListSkeleton />
         <TrackListSkeleton />
         <TrackListSkeleton />
         <TrackListSkeleton />
-      </>
-      : tracks ? tracks.map(track => <Track key={track.id} track={track}/>)
-      : null}
+      </> : tracks ? <>
+        {tracks.map(track => <Track key={track.id} track={track}/>)}
+      </> : null}
     </div>
   );
 }
