@@ -48,7 +48,7 @@ function Track({ track }) {
         </>}
 
         <div className={styles.link}>
-          Listen on <a href={track.url.track} target="_blank" rel="noreferrer">last.fm</a>
+          Listen on <a href={track.url.track} target="_blank" rel="noopener noreferrer">last.fm</a>
         </div>
         <Popup
           trigger={<div className={styles.seeMore}><span>More Info</span><PopOutIcon /></div>}

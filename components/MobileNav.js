@@ -14,8 +14,9 @@ function MobileNav() {
           <div />
           <div />
         </button>
-        <Link href="/about"><a className={styles.link}>About</a></Link>
-        <Link href="/contact"><a className={styles.link}>Contact</a></Link>
+        <Link href="/"><a className={styles.link} onClick={() => dispatch(setMobileNav(false))}>Home</a></Link>
+        <Link href="/about"><a className={styles.link} onClick={() => dispatch(setMobileNav(false))}>About</a></Link>
+        <Link href="/contact"><a className={styles.link} onClick={() => dispatch(setMobileNav(false))}>Contact</a></Link>
       </nav>
       <div className={styles.closeOnClick} onClick={() => dispatch(setMobileNav(false))} />
     </div>

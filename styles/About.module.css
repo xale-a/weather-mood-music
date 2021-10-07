@@ -1,0 +1,48 @@
+.container {
+  margin-left: auto;
+  margin-right: 35%;
+  max-width: 55rem;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: var(--primary-color-light);
+}
+
+.container h1 {
+  margin-bottom: 1.5rem;
+}
+
+.container a:hover {
+  color: var(--accent-color);
+}
+
+.container p {
+  max-width: 70ch;
+  margin-bottom: 0.7rem;
+}
+
+@media only screen and (max-width: 101.35em) {
+  .container {
+    max-width: 50rem;
+  }
+}
+
+@media only screen and (max-width: 80.75em) {
+  .container {
+    margin-right: auto;
+  }
+
+  .container a {
+    text-decoration: underline;
+    text-underline-offset: 1px;
+  }
+
+  .container a:hover {
+    color: currentColor;
+  }
+}
+
+@media only screen and (max-width: 43.25em) {
+  .container {
+    padding: 0.7rem;
+  }
+}
