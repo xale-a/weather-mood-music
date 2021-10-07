@@ -8,6 +8,10 @@
   background-color: var(--primary-color-dark);
 }
 
+.navbar a {
+  text-decoration: none;
+}
+
 .logo {
   margin-right: auto;
   font-size: 1.7rem;
@@ -27,10 +31,6 @@
   transition: 200ms ease;
 }
 
-.link:hover {
-  color: var(--accent-color);
-}
-
 @media only screen and (max-width: 80.75em) {
   .navbar {
     position: sticky;
@@ -40,10 +40,6 @@
 
   .logo:hover {
     color: var(--accent-color);
-  }
-
-  .link:hover {
-    color: currentColor;
   }
 
   .refresh {

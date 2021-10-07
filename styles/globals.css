@@ -36,7 +36,24 @@ body {
   color: var(--light-gray);
 }
 
-a {
+a:link,
+a:visited {
   color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+@media only screen and (max-width: 80.75em) {
+  a:link,
+  a:visited {
+    text-decoration: underline;
+    text-underline-offset: 1px;
+  }
+
+  a:hover {
+    color: currentColor;
+  }
 }

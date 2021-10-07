@@ -72,10 +72,6 @@
   transition: 200ms ease;
 }
 
-.link a:hover {
-  color: var(--accent-color);
-}
-
 .seeMore {
   cursor: pointer;
   grid-column: -1 / -2;
@@ -131,12 +127,6 @@
 
   .link a {
     font-size: 1.05rem;
-    text-decoration: underline;
-    text-underline-offset: 1px;
-  }
-  
-  .link a:hover {
-    color: currentColor;
   }
 
   .seeMore > span {

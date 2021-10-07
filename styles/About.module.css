@@ -11,10 +11,6 @@
   margin-bottom: 1.5rem;
 }
 
-.container a:hover {
-  color: var(--accent-color);
-}
-
 .container p {
   max-width: 70ch;
   margin-bottom: 0.7rem;
@@ -29,15 +25,6 @@
 @media only screen and (max-width: 80.75em) {
   .container {
     margin-right: auto;
-  }
-
-  .container a {
-    text-decoration: underline;
-    text-underline-offset: 1px;
-  }
-
-  .container a:hover {
-    color: currentColor;
   }
 }
 

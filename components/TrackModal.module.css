@@ -13,10 +13,6 @@
   transition: 200ms ease;
 }
 
-.container a:hover {
-  color: var(--accent-color);
-}
-
 .info {
   grid-column: info-start / info-end;
   grid-row: 1 / 2;
@@ -70,18 +66,6 @@
 
 .close:active {
   background-color: var(--primary-color-light);
-}
-
-
-@media only screen and (max-width: 80.75em) {
-  .container a {
-    text-decoration: underline;
-    text-underline-offset: 1px;
-  }
-  
-  .container a:hover {
-    color: currentColor;
-  }
 }
 
 @media only screen and (max-width: 55em) {
