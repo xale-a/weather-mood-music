@@ -3,12 +3,9 @@
 :root {
   --accent-color: #FFD369;
   --accent-color__4: #FFD36966;
-  /* --primary-color-dark: #191a24; */
   --primary-color-dark: #202030;
   --primary-color: #2c2e44;
-  --primary-color-light: hsl(272, 10%, 25%);
-  /* --primary-color-light: hsl(270, 8%, 25%); */
-  /* --primary-color-light: hsl(270, 8%, 35%); */
+  --primary-color-light: #383a52;
 
   --light-gray: #EEEEEE;
   --light-gray__4: #EEEEEE66;

@@ -27,7 +27,8 @@
   z-index: 100;
 }
 
-.mobileNav a {
+.mobileNav a:link,
+.mobileNav a:visited {
   text-decoration: none;
 }
 

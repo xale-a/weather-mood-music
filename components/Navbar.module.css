@@ -8,7 +8,8 @@
   background-color: var(--primary-color-dark);
 }
 
-.navbar a {
+.navbar a:link,
+.navbar a:visited {
   text-decoration: none;
 }
 
