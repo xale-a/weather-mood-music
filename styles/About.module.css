@@ -8,12 +8,13 @@
 }
 
 .container h1 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.15rem;
 }
 
 .container p {
   max-width: 70ch;
   margin-bottom: 0.7rem;
+  line-height: 1.6;
 }
 
 @media only screen and (max-width: 101.35em) {
@@ -31,5 +32,13 @@
 @media only screen and (max-width: 43.25em) {
   .container {
     padding: 0.7rem;
+  }
+
+  .container h1 {
+    margin-bottom: 0.35rem;
+  }
+
+  .container p {
+    margin-bottom: 0.6rem;
   }
 }

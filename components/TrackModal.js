@@ -51,7 +51,11 @@ function TrackModal({ track, close }) {
       <div className={styles.wiki}>
         {track.wiki == '' ? 'Wiki not available...' : <>{track.wiki}... <a href={track.url.wiki} target="_blank" rel="noopener noreferrer">read more</a></>}
       </div>
-      <button className={styles.close} onClick={close}>
+      <button
+        className={styles.close}
+        onClick={close}
+        aria-label="Close track info"
+      >
         Close
       </button>
     </div>

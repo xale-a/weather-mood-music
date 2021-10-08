@@ -23,7 +23,7 @@ const selectTheme = (theme) => ({
     neutral20: '#eeeeee99', //border
     neutral30: '#eeeeeedd', //border-hover
     neutral40: '#eeeeeeee', //arrow hover
-    neutral50: '#eeeeee88', //placeholder
+    neutral50: '#eeeeee99', //placeholder
     neutral60: '#eeeeee', //arrow selected
     neutral80: '#eeeeee', //typed text
   },
@@ -93,6 +93,7 @@ function CitySelect() {
       <button
         className={styles.getLocation}
         onClick={() => getLocation(dispatch)}
+        aria-label="Get current location"
       >
         Get current location
       </button>
@@ -101,6 +102,7 @@ function CitySelect() {
           className={`${styles.refresh} ${!isTabletLand && styles.refresh_hover}`}
           onClick={() => dispatch(setRefresh(true))}
           disabled={!city}
+          aria-label="Refresh tracks"
         >
           <RefreshIcon />
         </button>

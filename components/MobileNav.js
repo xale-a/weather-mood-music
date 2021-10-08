@@ -10,7 +10,11 @@ function MobileNav() {
   return (<>
     <div className={`${styles.overlay} ${!mobileNav && styles.hidden}`}>
       <nav className={`${styles.mobileNav} ${mobileNav ? styles.in : styles.out}`}>
-        <button className={styles.close} onClick={() => dispatch(setMobileNav(false))}>
+        <button
+          className={styles.close}
+          onClick={() => dispatch(setMobileNav(false))}
+          aria-label="Close navigation"
+        >
           <div />
           <div />
         </button>

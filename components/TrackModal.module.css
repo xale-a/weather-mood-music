@@ -9,10 +9,6 @@
   row-gap: 1rem;
 }
 
-.container a {
-  transition: 200ms ease;
-}
-
 .info {
   grid-column: info-start / info-end;
   grid-row: 1 / 2;

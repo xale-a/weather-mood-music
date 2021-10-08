@@ -18,10 +18,9 @@
   font-size: 1.7rem;
   font-weight: 500;
   color: var(--accent-color);
-  transition: 200ms ease;
 }
 
-.logo:hover {
+.logo a:hover {
   color: var(--light-gray);
 }
 
@@ -29,7 +28,6 @@
 .link:visited {
   padding: 0 1.5rem;
   font-size: 1.3rem;
-  transition: 200ms ease;
 }
 
 @media only screen and (max-width: 80.75em) {
@@ -39,7 +37,7 @@
     z-index: 10;
   }
 
-  .logo:hover {
+  .logo a:hover {
     color: var(--accent-color);
   }
 

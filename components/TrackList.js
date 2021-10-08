@@ -36,7 +36,11 @@ function SongList() {
     <div className={styles.container}>
       {error ? <>
         Oh no, there was an error... :/
-        <button className={styles.tryAgain} onClick={refetch}>
+        <button
+          className={styles.tryAgain}
+          onClick={refetch}
+          aria-label="Try again"
+        >
           Try again
         </button>
       </> : isUninitialized ? <>

@@ -41,7 +41,11 @@ function WeatherInfo() {
       {error ? <>
         <div className={styles.container}>
           Oh no, there was an error... :/
-          <button className={styles.tryAgain} onClick={refetch}>
+          <button
+            className={styles.tryAgain}
+            onClick={refetch}
+            aria-label="Try again"
+          >
             Try again
           </button>
         </div>
@@ -80,6 +84,7 @@ function WeatherInfo() {
                     <button
                       className={styles.refresh}
                       onClick={refetch}
+                      aria-label="Refresh weather"
                     >
                       <RefreshIcon />
                     </button>
@@ -101,6 +106,7 @@ function WeatherInfo() {
                     <button
                       className={styles.refresh}
                       onClick={refetch}
+                      aria-label="Refresh weather"
                     >
                       <RefreshIcon />
                     </button>
@@ -122,6 +128,7 @@ function WeatherInfo() {
               <button
                 className={`${styles.refresh} ${!isTablet && styles.refresh_hover}`}
                 onClick={refetch}
+                aria-label="Refresh weather"
               >
                 <RefreshIcon />
               </button>

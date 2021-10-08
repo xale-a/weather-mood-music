@@ -15,7 +15,11 @@ function Navbar() {
   return (<>
     {isTabletPort ? <>
       <div className={styles.navbar}>
-        <button className={styles.burger} onClick={() => dispatch(setMobileNav(true))}>
+        <button
+          className={styles.burger}
+          onClick={() => dispatch(setMobileNav(true))}
+          aria-label="Open navigation"
+        >
           <div />
           <div />
           <div />
@@ -27,6 +31,7 @@ function Navbar() {
           className={styles.refresh}
           onClick={() => dispatch(setRefresh(true))}
           disabled={!city}
+          aria-label="Refresh tracks"
         >
           <RefreshIcon />
         </button>
@@ -41,6 +46,7 @@ function Navbar() {
             className={styles.refresh}
             onClick={() => dispatch(setRefresh(true))}
             disabled={!city}
+            aria-label="Refresh tracks"
           >
             <RefreshIcon />
           </button>

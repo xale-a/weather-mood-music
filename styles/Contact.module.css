@@ -3,7 +3,7 @@
   margin-right: 35%;
   max-width: 55rem;
   height: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: var(--primary-color-light);
 }
 
@@ -21,7 +21,6 @@
 .container a:hover svg {
   fill: var(--accent-color);
 }
-
 
 .icon {
   width: 2.5rem;
@@ -41,5 +40,15 @@
 
   .container a:hover svg {
     fill: currentColor;
+  }
+}
+
+@media only screen and (max-width: 43.25em) {
+  .container {
+    padding: 0.7rem;
+  }
+
+  .container h1 {
+    margin-bottom: 0.9rem;
   }
 }

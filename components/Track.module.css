@@ -68,10 +68,6 @@
   overflow: visible;
 }
 
-.link a {
-  transition: 200ms ease;
-}
-
 .seeMore {
   cursor: pointer;
   grid-column: -1 / -2;
